@@ -45,7 +45,7 @@ public class BinaryTree implements Tree {
     @Override
     //true if inserted
     // false if error occurred
-    public boolean insert(Element val) {
+    public boolean insert(Comparable val) {
 
         TreeNode parent = null;
         TreeNode child = root;
@@ -55,11 +55,11 @@ public class BinaryTree implements Tree {
 
             //if (val.compareTo(child.getElement()) == 0) causes problems
             if (val.compareTo(child.getElement()) == 0) {
-                return false;
-            }// element already in tree, i is not inserted
+                return false;   // element already in tree, i is not inserted
+            }
             //else if ( val.compareTo(child.getElement()) < 0)
 
-            else if (val.compareTo(child.getElement()) > 0)
+            else if (val.compareTo(child.getElement()) < 0)
                 child = child.getLeft(); // insert in left tree
             else
                 child = child.getRight(); // insert in right tree
@@ -69,7 +69,7 @@ public class BinaryTree implements Tree {
         if (parent == null) // empty tree -> insert first node
             root = new TreeNode(val);
             //else if (val.compareTo(parent.getElement()) < 0)
-        else if (val.compareTo(parent.getElement()) > 0)
+        else if (val.compareTo(parent.getElement()) < 0)
             parent.setLeft(new TreeNode(val)); // insert left from parent
         else
             parent.setRight(new TreeNode(val)); // insert right from parent
@@ -83,7 +83,8 @@ public class BinaryTree implements Tree {
         if (isFilePresent(filename)) {
             int[] elements = readIntegerArray(filename); // reads the file into an array (elements)
             for (int element : elements) { // for each loop for elements
-                if (this.insert(new IntElement(element))) // if the element is added correctly
+                print(element);
+                if (this.insert(Integer.valueOf(element))) // if the element is added correctly
                     insertedElement = true; // set insertedElement to true
             }
         } else
@@ -94,25 +95,26 @@ public class BinaryTree implements Tree {
 
     // saves the binary tree data to a file
     @Override
+    //TODO: fix
     public boolean saveToFile(String filename) {
-        int[] array = new int[this.size()]; // init array to save in
+        Comparable[] array = new Comparable[this.size()]; // init array to save in
         if (saveToFile(this.root, array, 0) == 0) // if the root is empty return false
             return false;
-        saveIntegerArray(array, filename); // saves the array to a file
+        //saveIntegerArray(array, filename); // saves the array to a file
         return true; // return ture if everything is accepted
     }
 
-    private int saveToFile(TreeNode root, int[] array, int index) { // fills the array with the elements
+    private int saveToFile(TreeNode root, Comparable[] array, int index) { // fills the array with the elements
         // if the root is empty return false
         if (root == null) return index;
-        array[index++] = ((IntElement)root.getElement()).getValue(); // adds to array a key and increments the index
+        array[index++] = root.getElement(); // adds to array a key and increments the index
         index = saveToFile(root.getLeft(), array, index); // go recursive left
         index = saveToFile(root.getRight(), array, index);// go recursive right
         return index; // returns the end index
     }
 
     @Override
-    public boolean contains(Element val) {
+    public boolean contains(Comparable val) {
         TreeNode child = root; // child ist the root
         boolean found = false; // init found to false
 
@@ -178,7 +180,7 @@ public class BinaryTree implements Tree {
     }
 
     @Override
-    public Element getMax() { // returns the max Element
+    public Comparable getMax() { // returns the max Element
         if(this.root == null)
             return null;
         TreeNode n = this.root;
@@ -202,7 +204,7 @@ public class BinaryTree implements Tree {
     }
 
     @Override
-    public Element getMin() {// returns min element
+    public Comparable getMin() {// returns min element
         if(this.root == null)
             return null;
         TreeNode n = this.root;
@@ -213,7 +215,7 @@ public class BinaryTree implements Tree {
     }
 
     @Override
-    public boolean remove(Element val) {
+    public boolean remove(Comparable val) {
         //first to element has to be found, then all references have to be refreshed
         TreeNode parent = null;
         TreeNode child = root;
@@ -252,9 +254,9 @@ public class BinaryTree implements Tree {
             else {
                 //replace the root with biggest element from left tree
                 TreeNode k = getMin(child.getRight());
-                int remember = ((IntElement)k.getElement()).getValue();
+                Comparable remember = k.getElement();
                 remove(k.getElement()); // recursive call
-                ((IntElement) this.root.getElement()).setKey(remember); // recursive backwards
+                this.root.setKey(remember); // recursive backwards
             }
         } else {
             //delete a normal node
@@ -275,9 +277,9 @@ public class BinaryTree implements Tree {
             } else {    //node has 2 childs
                 //TreeNode k = getMax(child.getLeft());
                 TreeNode k = getMin(child.getRight());
-                int remember =  ((IntElement)k.getElement()).getValue();
+                Comparable remember =  k.getElement();
                 remove(k.getElement());
-                ((IntElement) child.getElement()).setKey(remember);
+                child.setKey(remember);
             }
 
         }
@@ -393,7 +395,7 @@ public class BinaryTree implements Tree {
         if (root == null) { // if root is null then return null
             return null;
         }
-        TreeNode nodeClone = new TreeNode(new IntElement(((IntElement)root.getElement()).getValue())); // gets each element from root
+        TreeNode nodeClone = new TreeNode((Comparable) root.getKey()); // gets each element from root
         //TreeNode nodeClone = new TreeNode(this.root.getElement());
         nodeClone.left = clone(root.getLeft());
         nodeClone.right = clone(root.getRight()); // recursive call for both sides
@@ -436,17 +438,17 @@ public class BinaryTree implements Tree {
     public boolean equal(Tree otherTree) { // compares the values
         if (!(otherTree instanceof BinaryTree))
             return false;
-        int currentTreeElements[] = this.convertTreeToArray(this); // convert the current tree to an array
-        int otherTreeElements[] = ((BinaryTree) otherTree).convertTreeToArray(otherTree); // convert the otherTree to an array
+        Comparable currentTreeElements[] = this.convertTreeToArray(this); // convert the current tree to an array
+        Comparable otherTreeElements[] = ((BinaryTree) otherTree).convertTreeToArray(otherTree); // convert the otherTree to an array
 
         if (currentTreeElements.length != otherTreeElements.length) // if both arrays have not the same length return false
             return false;
 
         //search the equal values in both trees
-        for (int i : currentTreeElements) { // for each loop for the first array
+        for (Comparable i : currentTreeElements) { // for each loop for the first array
             boolean found = false; // set found boolean to false
-            for (int i2 : otherTreeElements) { // for each loop for the second array
-                if (i == i2) // compare one value of array 1 with all values from array 2
+            for (Comparable i2 : otherTreeElements) { // for each loop for the second array
+                if (i.compareTo(i2) == 0) // compare one value of array 1 with all values from array 2
                     found = true; // if one is equal set found to true
             }
             if (!found) // if one value is not in the other array return false
@@ -456,8 +458,8 @@ public class BinaryTree implements Tree {
 
     }
 
-    private int[] convertTreeToArray(Tree t) { // converts a tree to an array
-        int[] array = new int[t.size()];
+    private Comparable[] convertTreeToArray(Tree t) { // converts a tree to an array
+        Comparable[] array = new Comparable[t.size()];
         saveToFile(((BinaryTree) t).root, array, 0); // calls method saveToFile  (private) writes the elements into the array
         return array; // return the array
     }

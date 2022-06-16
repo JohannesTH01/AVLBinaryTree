@@ -6,12 +6,12 @@ import graphvisualizer.VisualizableOneKeyNode;
 public class TreeNode implements VisualizableOneKeyNode { // Node of a binary tree
 
 ////////////////////////class TreeNode     //////////////////////////////////
-	Element elem; // all kinds of Element can be stored in tree
+	Comparable value; // all kinds of Element can be stored in tree
 	TreeNode left;
 	TreeNode right;
 
-	public TreeNode(Element i) {
-		elem = i;
+	public TreeNode(Comparable i) {
+		value = i;
 		left = right = null;
 	}
 
@@ -23,8 +23,12 @@ public class TreeNode implements VisualizableOneKeyNode { // Node of a binary tr
 		return right;
 	}
 
-	public Element getElement() {
-		return elem;
+	public Comparable getElement() {
+		return value;
+	}
+
+	public void setKey(Comparable element){
+		this.value = element;
 	}
 
 	public void setLeft(TreeNode n) {
@@ -36,7 +40,7 @@ public class TreeNode implements VisualizableOneKeyNode { // Node of a binary tr
 	}
 
 	public void print() {
-		pr.MakeItSimple.print(elem + " ");
+		pr.MakeItSimple.print(value + " ");
 //pr.MakeItSimple.print(elem.toString() + " ");
 	}
 
@@ -50,14 +54,14 @@ public class TreeNode implements VisualizableOneKeyNode { // Node of a binary tr
 
 	@Override
 	public Object getKey() {
-		return elem.getKey();
+		return value;
 	}
 
 	/**
 	 * @return the keys of this node.
 	 */
 	public Object[] getKeys() {
-		return new Object[] { elem.getKey() };
+		return new Object[] { this.value};
 	};
 
 }

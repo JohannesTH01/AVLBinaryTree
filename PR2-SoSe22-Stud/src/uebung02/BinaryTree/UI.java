@@ -111,7 +111,7 @@ public class UI {
                        String inputstr = "";
                        print("Next number: ");
                        int input = readInt(); // parse the input to an integer
-                       btree.insert(new IntElement(input)); // call insert method
+                       btree.insert(input); // call insert method
                        println("Want to enter another element (y/n) ?");
                        while(inputstr.isEmpty() || inputstr.isBlank())
                            inputstr = readLine();
@@ -138,7 +138,7 @@ public class UI {
 
                case(4):
                    print("Please enter a number which u want to search:");
-                   if (btree.contains(new IntElement(readInt()))) {
+                   if (btree.contains(readInt())) {
                        println("contains the number");
                    } else
                        println("contains not the number");
@@ -152,14 +152,14 @@ public class UI {
                    break;
 
                case(7):
-                   println("The max value is : " + (Integer) btree.getMax().getKey());
+                   println("The max value is : " + (Integer) btree.getMax());
                    break;
                case(8):
-                   println("The min value is : " + (Integer) btree.getMin().getKey());
+                   println("The min value is : " + (Integer) btree.getMin());
                    break;
                case(9):
                    println("Type in Number: ");
-                   btree.remove(new IntElement(readInt()));
+                   btree.remove(readInt());
                    break;
                case(10):
                    if (btree.isEmpty()) {

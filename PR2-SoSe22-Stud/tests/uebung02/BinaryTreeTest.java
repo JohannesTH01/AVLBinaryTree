@@ -30,18 +30,18 @@ public class BinaryTreeTest {
         assertEquals(false, tree1.insertFromFile(filename));
         assertEquals(16, tree1.size());
         assertEquals(6, tree1.height());
-        assertEquals(0, tree1.getMax().compareTo(new IntElement(80)));
-        assertEquals(0, tree1.getMin().compareTo(new IntElement(1)));
-        assertEquals(false, tree1.remove(new IntElement(31)));
+        assertEquals(0, tree1.getMax().compareTo(80));
+        assertEquals(0, tree1.getMin().compareTo(1));
+        assertEquals(false, tree1.remove(31));
         assertEquals(false, tree1.isEmpty());
-        assertEquals(false, tree1.contains(new IntElement(3)));
-        assertEquals(true, tree1.contains(new IntElement(30)));
+        assertEquals(false, tree1.contains(3));
+        assertEquals(true, tree1.contains(30));
 
         tree3 = (BinaryTree) tree1.clone();    // tree3 ist Klon von tree1
 
         tree3.remove(new IntElement(10));
-        assertEquals(false, tree3.contains(new IntElement(10)));
-        assertEquals(true, tree1.contains(new IntElement(10)));   // testet, dass Änderungen im Klon sich nicht auf Original auswirken
+        assertEquals(false, tree3.contains(10));
+        assertEquals(true, tree1.contains(10));   // testet, dass Änderungen im Klon sich nicht auf Original auswirken
 
         tree1.remove(new IntElement(40));   // Tests von Löschungen
         assertEquals(15, tree1.size());
@@ -79,27 +79,27 @@ public class BinaryTreeTest {
         assertEquals(0, tree1.height());
         assertEquals(null, tree1.getMax());
         assertEquals(null, tree1.getMin());
-        assertEquals(false, tree1.remove(new IntElement(1)));
+        assertEquals(false, tree1.remove(1));
         assertEquals(true, tree1.isEmpty());
-        assertEquals(false, tree1.contains(new IntElement(1)));
+        assertEquals(false, tree1.contains(1));
         assertEquals(true, ((BinaryTree) tree1.clone()).isEmpty());
     }
 
     @Test
     public void insertOnlyOneElement() {  // Tests mit Bäumen, die nur aus der Wurzel bestehen
-        tree1.insert(new IntElement(10));
+        tree1.insert(10);
         assertEquals(1, tree1.size());
         assertEquals(1, tree1.height());
-        assertEquals(0, tree1.getMax().compareTo(new IntElement(10)));
-        assertEquals(0, tree1.getMin().compareTo(new IntElement(10)));
-        assertEquals(false, tree1.remove(new IntElement(1)));
+        assertEquals(0, tree1.getMax().compareTo(10));
+        assertEquals(0, tree1.getMin().compareTo(10));
+        assertEquals(false, tree1.remove(1));
         assertEquals(false, tree1.isEmpty());
-        assertEquals(false, tree1.contains(new IntElement(1)));
-        assertEquals(true, tree1.contains(new IntElement(10)));
+        assertEquals(false, tree1.contains(1));
+        assertEquals(true, tree1.contains(10));
         assertEquals(false, ((BinaryTree) tree1.clone()).isEmpty());
-        assertEquals(true, tree1.remove(new IntElement(10)));
+        assertEquals(true, tree1.remove(10));
         assertEquals(true, tree1.isEmpty());
-        assertEquals(false, tree1.contains(new IntElement(10)));
+        assertEquals(false, tree1.contains(10));
         assertEquals(true, ((BinaryTree) tree1.clone()).isEmpty());
     }
 
@@ -198,8 +198,8 @@ public class BinaryTreeTest {
         assertEquals(true, tree1.insertFromFile(filename));
         assertEquals(true, tree2.insertFromFile(filename));
         assertEquals(true, tree1.equals(tree2));
-        assertEquals(true, tree1.remove(new IntElement(10)));
-        assertEquals(true, tree2.remove(new IntElement(10)));
+        assertEquals(true, tree1.remove(10));
+        assertEquals(true, tree2.remove(10));
         assertEquals(true, tree1.equals(tree2));
 
         tree1.clear();

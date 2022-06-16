@@ -4,24 +4,24 @@ package uebung02.BinaryTree;
 
 public interface Tree { // only int values stored in tree
 
-        public boolean insert(Element val); // inserts val in tree.
+        public boolean insert(Comparable val); // inserts val in tree.
 
         boolean insertFromFile(String filename); // inserts objects from file in tree
         // returns true if at least one element on file is really inserted
 
         boolean saveToFile(String filename); // stores objects from tree in file
 
-        boolean contains(Element val); // checks if val is in tree
+        boolean contains(Comparable val); // checks if val is in tree
 
         int size(); // computes number of values in tree
 
         int height(); // computes height of tree
 
-        Element getMax(); // returns biggest value of tree
+        Comparable getMax(); // returns biggest value of tree
 
-        Element getMin(); // returns smallest value of tree
+        Comparable getMin(); // returns smallest value of tree
 
-        boolean remove(Element val); // removes val from tree
+        boolean remove(Comparable val); // removes val from tree
 
         boolean isEmpty(); // checks if tree is empty
 
