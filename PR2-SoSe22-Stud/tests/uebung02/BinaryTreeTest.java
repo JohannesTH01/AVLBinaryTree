@@ -39,19 +39,19 @@ public class BinaryTreeTest {
 
         tree3 = (BinaryTree) tree1.clone();    // tree3 ist Klon von tree1
 
-        tree3.remove(new IntElement(10));
+        tree3.remove(10);
         assertEquals(false, tree3.contains(10));
         assertEquals(true, tree1.contains(10));   // testet, dass Änderungen im Klon sich nicht auf Original auswirken
 
-        tree1.remove(new IntElement(40));   // Tests von Löschungen
+        tree1.remove(40);   // Tests von Löschungen
         assertEquals(15, tree1.size());
         assertEquals(6, tree1.height());
 
-        tree1.remove(new IntElement(30));
+        tree1.remove(30);
         assertEquals(14, tree1.size());
         assertEquals(5, tree1.height());
 
-        tree1.remove(new IntElement(35));
+        tree1.remove(35);
         assertEquals(13, tree1.size());
         assertEquals(5, tree1.height());
 

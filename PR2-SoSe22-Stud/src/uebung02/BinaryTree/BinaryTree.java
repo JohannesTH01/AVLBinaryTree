@@ -244,6 +244,7 @@ public class BinaryTree implements Tree {
             }
 
         }
+        //child will be deleted
         if (child == this.root) {    //delete root
             if (child.getLeft() == null)
                 this.root = child.getRight();    //replace the root with right element
