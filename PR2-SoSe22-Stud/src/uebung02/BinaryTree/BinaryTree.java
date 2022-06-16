@@ -125,20 +125,18 @@ public class BinaryTree implements Tree {
                 found = true; // set found to true
                 continue; // jump to the top of the loop
             }
-            if (val.compareTo(child.getElement()) > 0) { // if 1, the child is bigger than the val
+            if (val.compareTo(child.getElement()) == -1) { // if 1, the child is bigger than the val
                 //go left
                 child = child.getLeft(); // go the left branch
                 continue;
             }
-            if (val.compareTo(child.getElement()) < 0) {// if 1, the child is smaller than the val
+            if (val.compareTo(child.getElement()) == 1) {// if 1, the child is smaller than the val
                 //go Right
                 child = child.getRight(); // go the right branch
                 continue;
             }
-
         }
         return found; // return found
-
     }
 
     @Override
@@ -225,20 +223,20 @@ public class BinaryTree implements Tree {
             println("Element does not exist");
             return false;
         }
-        while (!found) {
+        while (!found && child != null) {
             //search for the element which should be deleted
             if (val.compareTo(child.getElement()) == 0) {
                 //break loop
                 found = true;
             }
 
-            if (val.compareTo(child.getElement()) > 0) {
+            if (val.compareTo(child.getElement()) == -1) {
                 //go left
                 parent = child;
                 child = child.getLeft();
                 continue;
             }
-            if (val.compareTo(child.getElement()) < 0) {
+            if (val.compareTo(child.getElement()) == 1) {
                 //go Right
                 parent = child;
                 child = child.getRight();
