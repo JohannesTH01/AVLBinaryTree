@@ -1,0 +1,8 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚıÚÅúÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛÎÀÓûÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ê©¦Õ
+E
+java:S1197"*Move the array designators [] to the type.(ÚıÚÅúÿÿÿÿ
+E
+java:S1197"*Move the array designators [] to the type.(ÛÎÀÓûÿÿÿÿ

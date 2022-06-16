@@ -1,0 +1,17 @@
+
+J
+java:S3740"/Provide the parametrized type for this generic.(É¾×—øÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìšø
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿÉñÓøÿÿÿÿ
+f	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àÄ¨Õ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿±ğşÿÿÿÿ
+—
+java:S1186$"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(àÄ¨Õ
+V
+java:S1128";Remove this unused import 'uebung02.BinaryTree.IntElement'.(ûÛ®×ÿÿÿÿÿ
+W
+java:S1128"<Remove this unused import 'uebung03.Elements.StringElement'.(•Õ½ÿÿÿÿÿ
+N
+java:S1128"3Remove this unused import 'gdi.MakeItSimple.print'.(ß½­Õøÿÿÿÿ
+O
+java:S1128"4Remove this unused import 'pr.MakeItSimple.println'.(·ñÀùÿÿÿÿ

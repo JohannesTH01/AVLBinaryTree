@@ -1,0 +1,32 @@
+
+J
+java:S3740"/Provide the parametrized type for this generic.(ã‚Šêüÿÿÿÿ
+D
+java:S37401"/Provide the parametrized type for this generic.(Ï®—d
+J
+java:S3740W"/Provide the parametrized type for this generic.(±—×ñÿÿÿÿÿ
+J
+java:S3740b"/Provide the parametrized type for this generic.(ò‰½Äûÿÿÿÿ
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î‘Û´
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿±ğşÿÿÿÿ
+E
+java:S1197"*Move the array designators [] to the type.(¡şÏÖøÿÿÿÿ
+E
+java:S1197"*Move the array designators [] to the type.(ùÄòúÿÿÿÿ
+U
+java:S4838":Change "Comparable" to the type handled by the Collection.(ã‚Šêüÿÿÿÿ
+M
+java:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+Q	java:S125&"<This block of commented-out lines of code should be removed.(ÑÏ¤‰
+m
+java:S3776."RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Ç½È¾üÿÿÿÿ
+M
+java:S1135/"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+V	java:S125;"<This block of commented-out lines of code should be removed.(ÅûÜøøÿÿÿÿ
+V	java:S125>"<This block of commented-out lines of code should be removed.(‹†šåıÿÿÿÿ
+Q	java:S125D"<This block of commented-out lines of code should be removed.(ÿà‡
+V	java:S125G"<This block of commented-out lines of code should be removed.(«Ìí÷ûÿÿÿÿ
+M
+java:S1135I"2Complete the task associated to this TODO comment.(û“ÆŸúÿÿÿÿ
+M
+java:S1135a"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ

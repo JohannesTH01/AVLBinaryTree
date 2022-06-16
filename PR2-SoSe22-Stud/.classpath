@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="vorlesungsbeispiele"/>
+	<classpathentry excluding="solutions/" kind="src" path="lib"/>
+	<classpathentry kind="src" path="tests"/>
+	<classpathentry exported="true" kind="lib" path="lib/gdi16.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/junit.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/pr20.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/Tree-Visualization.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/util.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

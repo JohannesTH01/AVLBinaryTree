@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/temurin-18"/>
+	<classpathentry kind="src" path="PR2-SoSe22-Stud/src"/>
+	<classpathentry kind="src" path="PR2-SoSe22-Stud/tests"/>
+	<classpathentry kind="lib" path="PR2-SoSe22-Stud/lib/junit.jar"/>
+	<classpathentry kind="lib" path="PR2-SoSe22-Stud/lib/gdi16.jar"/>
+	<classpathentry kind="lib" path="PR2-SoSe22-Stud/lib/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+	<classpathentry kind="lib" path="PR2-SoSe22-Stud/lib/pr20.jar"/>
+	<classpathentry kind="lib" path="PR2-SoSe22-Stud/lib/Tree-Visualization.jar"/>
+	<classpathentry kind="lib" path="PR2-SoSe22-Stud/lib/util.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

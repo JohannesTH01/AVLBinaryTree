@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component jdk="temurin-18" jdk_type="JavaSDK">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<testFolder url="file://$MODULE_DIR$/PR2-SoSe22-Stud/tests"/>
+	</contentEntry>
+	<lib name="junit.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/PR2-SoSe22-Stud/lib/junit.jar!/"/>
+	</lib>
+	<lib name="gdi16.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/PR2-SoSe22-Stud/lib/gdi16.jar!/"/>
+	</lib>
+	<lib name="org.hamcrest.core_1.3.0.v201303031735.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/PR2-SoSe22-Stud/lib/org.hamcrest.core_1.3.0.v201303031735.jar!/"/>
+	</lib>
+	<lib name="pr20.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/PR2-SoSe22-Stud/lib/pr20.jar!/"/>
+	</lib>
+	<lib name="Tree-Visualization.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/PR2-SoSe22-Stud/lib/Tree-Visualization.jar!/"/>
+	</lib>
+	<lib name="util.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/PR2-SoSe22-Stud/lib/util.jar!/"/>
+	</lib>
+</component>

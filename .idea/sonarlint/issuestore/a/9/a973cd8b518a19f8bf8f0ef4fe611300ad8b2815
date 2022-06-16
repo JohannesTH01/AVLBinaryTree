@@ -1,0 +1,46 @@
+
+m	java:S135w"YReduce the total number of break and continue statements in this loop to use at most one.(ñÛ¾
+F
+java:S1066¢"/Merge this if statement with the enclosing one.(ë·‚¨
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ú¤°i
+[
+java:S2259"DA "NullPointerException" could be thrown; "parent" is nullable here.(ÕĞª…
+[
+java:S2259ˆ"DA "NullPointerException" could be thrown; "parent" is nullable here.(ÕĞª…
+l
+java:S1206”"PThis class overrides "equals()" and should therefore also override "hashCode()".(­×¤üÿÿÿÿ
+Q	java:S1258"<This block of commented-out lines of code should be removed.(†Áé¦
+Q	java:S125<"<This block of commented-out lines of code should be removed.(ñë¥ˆ
+Q	java:S125G"<This block of commented-out lines of code should be removed.(Û³á–
+2
+java:S3626†"Remove this redundant jump.(ÉŠ©ƒ
+i
+java:S3776Ø"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(Ô Ï¶
+W	java:S125”"<This block of commented-out lines of code should be removed.(ŸÌÀ‡ÿÿÿÿÿ
+j
+java:S2975‚"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(»õÿ
+_
+java:S1182‚"HUse super.clone() to create and seed the cloned instance to be returned.(»õÿ
+R	java:S125"<This block of commented-out lines of code should be removed.(×û‘¨
+X
+java:S1126®"AReplace this if-then-else statement by a single return statement.(ÉùÌÌ
+}
+java:S1221´"aEither override Object.equals(Object obj), or totally rename the method to prevent any confusion.(»®ºúÿÿÿÿ
+A
+java:S1197·"*Move the array designators [] to the type.(á»­¤
+F
+java:S1197¸"*Move the array designators [] to the type.(‰ñ¦©ûÿÿÿÿ
+Y
+java:S1128">Remove this unused import 'gdi.MakeItSimple.isEndOfInputFile'.(È«õûüÿÿÿÿ
+Q
+java:S1128";Remove this unused import 'gdi.MakeItSimple.openInputFile'.(’ß˜
+F
+java:S1128"+Remove this unused import 'pr2.util.Queue'.(Š²ŠÉşÿÿÿÿ
+F
+java:S1128"0Remove this unused import 'pr2.util.LinkedList'.(›é™¸
+G
+java:S1128"1Remove this unused import 'pr2.util.LinkedListI'.(†ØŸÈ
+A
+java:S1128"+Remove this unused import 'pr2.util.Queue'.(Ç«Ğ
+C
+java:S1128"(Remove this unused import 'uebung01.UI'.(úûˆŞıÿÿÿÿ
