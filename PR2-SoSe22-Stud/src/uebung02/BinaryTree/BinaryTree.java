@@ -42,6 +42,39 @@ public class BinaryTree implements Tree {
      * @return true if the adding is accepted
      * @return false if the adding is rejected
      */
+
+    public boolean insertRecursively(Comparable elem){
+        return insertRecursively(this.root, elem);
+    }
+
+    private boolean insertRecursively(TreeNode node, Comparable elem){
+        if(node == null) {
+            node = new TreeNode(elem);
+            return true;
+        }
+
+        if(elem.compareTo(node.getElement()) == 0)
+            return false;
+
+        if(elem.compareTo(node.getElement()) == -1){
+            if(node.getLeft() == null){
+                node.setLeft(new TreeNode(elem));
+                return true;
+            }else {
+                return insertRecursively(node.getLeft(), elem);
+            }
+        }
+
+
+        if(elem.compareTo(node.getElement()) == 1)
+            if(node.getRight() == null){
+                node.setRight(new TreeNode(elem));
+                return true;
+            }else{
+                return insertRecursively(node.getRight(), elem);
+            }
+        return true;
+    }
     @Override
     //true if inserted
     // false if error occurred
