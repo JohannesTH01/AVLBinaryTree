@@ -24,4 +24,11 @@ public class AVLTreeNode extends TreeNode {
         tmp.setLeft(t);
         return tmp;
     }
+
+    private AVLTreeNode rotateRight(AVLTreeNode t){
+        AVLTreeNode tmp = (AVLTreeNode) t.getLeft();
+        t.setLeft(t.getLeft().getRight());
+        tmp.setRight(t);
+        return tmp;
+    }
 }
