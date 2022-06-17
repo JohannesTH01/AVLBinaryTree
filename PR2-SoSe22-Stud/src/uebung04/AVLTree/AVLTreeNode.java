@@ -31,4 +31,33 @@ public class AVLTreeNode extends TreeNode {
         tmp.setRight(t);
         return tmp;
     }
+
+    public int calculateBalance(){
+        int balanceRightSubTree = height(this.getRight());
+        int balanceLeftSubTree = height(this.getLeft());
+
+        this.balance = balanceLeftSubTree - balanceRightSubTree;
+        if(balance < -1 || balance > 1)
+            isBalanced = false;
+        else
+            isBalanced = true;
+        return this.balance;
+    }
+
+    private int height(TreeNode n) {
+        int heightLeft = 0;
+        int heightRight = 0;
+        if(n == null)
+            return 0;
+
+        if (n.getLeft() != null)
+            heightLeft = height(n.getLeft()); // recursive call
+        if (n.getRight() != null)
+            heightRight = height(n.getRight());
+        if (heightLeft > heightRight) { // checks which branch is longer
+            return heightLeft + 1; // levels +1
+        } else {
+            return heightRight + 1;
+        }
+    }
 }

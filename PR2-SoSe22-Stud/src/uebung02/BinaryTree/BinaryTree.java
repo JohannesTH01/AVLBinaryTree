@@ -197,7 +197,7 @@ public class BinaryTree implements Tree {
         }
     }
 
-    private int height(TreeNode n) {
+    protected int height(TreeNode n) {
         int heightLeft = 0;
         int heightRight = 0;
         if (n.getLeft() != null)

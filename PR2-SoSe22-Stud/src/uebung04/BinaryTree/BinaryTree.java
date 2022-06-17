@@ -15,7 +15,7 @@ import static pr.MakeItSimple.readIntegerArray;
 
 public class BinaryTree implements Tree {
 
-    private TreeNode root;
+    public TreeNode root;
 
 
     public BinaryTree() { // without parameter, root is null
@@ -34,6 +34,10 @@ public class BinaryTree implements Tree {
      */
 
     public boolean insertRecursively(Comparable elem){
+        if(this.root == null){
+            this.root = new TreeNode(elem);
+            return true;
+        }
         return insertRecursively(this.root, elem);
     }
 
@@ -187,7 +191,7 @@ public class BinaryTree implements Tree {
         }
     }
 
-    private int height(TreeNode n) {
+    public int height(TreeNode n) {
         int heightLeft = 0;
         int heightRight = 0;
         if (n.getLeft() != null)
