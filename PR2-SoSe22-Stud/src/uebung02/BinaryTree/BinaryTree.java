@@ -78,6 +78,7 @@ public class BinaryTree implements Tree {
     @Override
     //true if inserted
     // false if error occurred
+
     public boolean insert(Comparable val) {
 
         TreeNode parent = null;
