@@ -6,6 +6,7 @@ public class AVLTreeNode extends TreeNode {
 
     int balance;
     boolean isBalanced;
+    AVLTreeNode parent;
 
     public AVLTreeNode(Comparable i) {
         super(i);
@@ -25,7 +26,7 @@ public class AVLTreeNode extends TreeNode {
         return tmp;
     }
 
-    private AVLTreeNode rotateRight(AVLTreeNode t){
+    public AVLTreeNode rotateRight(AVLTreeNode t){
         AVLTreeNode tmp = (AVLTreeNode) t.getLeft();
         t.setLeft(t.getLeft().getRight());
         tmp.setRight(t);
