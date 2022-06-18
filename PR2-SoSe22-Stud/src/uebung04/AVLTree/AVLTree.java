@@ -56,10 +56,14 @@ public class  AVLTree extends BinaryTree {
         currentNode.calculateBalance();
         if(!currentNode.isBalanced) {
             println("current node: " + currentNode.getElement() + " rebalance needed");
-            //now we have to decide which type of rotation is necessary
-            AVLTreeNode tempNode = (AVLTreeNode) currentNode;
-            currentNode = (AVLTreeNode) currentNode.getLeft();
-            currentNode.setRight(tempNode);
+            //now we have to decide which type of rotation is needed
+
+            //right rotation (for testing purposes !)
+            Comparable tempValue = currentNode.getElement();
+            currentNode.parent.setLeft(currentNode.getLeft());
+            currentNode.parent.getLeft().setRight(new AVLTreeNode(tempValue));
+
+
             return;
 
         }
