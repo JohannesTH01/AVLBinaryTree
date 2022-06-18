@@ -1,7 +1,6 @@
 package uebung04.AVLTree;
 
 import uebung04.BinaryTree.BinaryTree;
-import uebung04.BinaryTree.TreeNode;
 
 import static pr.MakeItSimple.println;
 
@@ -11,16 +10,16 @@ public class  AVLTree extends BinaryTree {
     }
 
     @Override
-    public boolean insertRecursively(Comparable elem){
+    public boolean insert(Comparable elem){
         if(this.root == null){
             this.root = new AVLTreeNode(elem);
             return true;
         }
 
-        return this.add((AVLTreeNode) this.root, new AVLTreeNode(elem));
+        return this.insertR((AVLTreeNode) this.root, new AVLTreeNode(elem));
     }
 
-    public boolean add(AVLTreeNode parentNode, AVLTreeNode newNode){
+    public boolean insertR(AVLTreeNode parentNode, AVLTreeNode newNode){
         println("insert:" + newNode.getElement());
         int comparisonResult = newNode.getElement().compareTo(parentNode.getElement());
         println(comparisonResult);
@@ -29,7 +28,7 @@ public class  AVLTree extends BinaryTree {
             if(parentNode.getRight() == null){
                 parentNode.setRight(newNode);
             }else{
-                this.add((AVLTreeNode) parentNode.getRight(), newNode);
+                this.insertR((AVLTreeNode) parentNode.getRight(), newNode);
             }
         }
 
@@ -38,39 +37,38 @@ public class  AVLTree extends BinaryTree {
             if(parentNode.getLeft() == null){
                 parentNode.setLeft(newNode);
             }else{
-                this.add((AVLTreeNode) parentNode.getLeft(), newNode);
+                this.insertR((AVLTreeNode) parentNode.getLeft(), newNode);
             }
         }else{
-            return false;   //element alrey inserted
+            return false;   //element already inserted
         }
 
-        checkBalance(newNode);
+        checkBalance((AVLTreeNode)this.root);
         return true;
     }
 
     private void checkBalance (AVLTreeNode node){
-        node.calculateBalance();
+        int balanceDifferece = node.calculateBalance();
         println("Node: " +node.getElement() + " is balances ?" + node.isBalanced);
-
-        int balanceDifferece = height(node.getLeft()) - height(node.getRight());
-
-        if(balanceDifferece > 1 || balanceDifferece < -1){
+        if(balanceDifferece > 1 || balanceDifferece < -1 && !node.isBalanced){
             //rebalance
-            rebalance(node);
+            rebalance(node,balanceDifferece);
         }
-        if(node.parent == null)
-            return; //root reached
-
-        checkBalance(node.parent);
+        if(node.parent != null)
+            checkBalance(node.parent);
     }
 
-    private void rebalance(AVLTreeNode node){
-        int balanceDifferece = height(node.getLeft()) - height(node.getRight());
+    private void rebalance(AVLTreeNode node, int balanceDifferece){
 
         if(balanceDifferece > 1){
-            if(height(node.getLeft().getLeft()) > height(node.getLeft().getRight())){
-                node = rotateRight(node);
-            }
+            if(node.getRight()!= null && node.getLeft() !=null)
+                node.setLeft(rotateLeft(node));
+
+        }
+        if(balanceDifferece < -1){
+            if(node.getRight()!= null && node.getLeft() !=null)
+                node.setRight(rotateRight(node));
+
         }
     }
 
@@ -81,7 +79,7 @@ public class  AVLTree extends BinaryTree {
         return tmp;
     }
 
-    public AVLTreeNode rotateRight(AVLTreeNode t){
+    private AVLTreeNode rotateRight(AVLTreeNode t){
         AVLTreeNode tmp = (AVLTreeNode) t.getLeft();
         t.setLeft(t.getLeft().getRight());
         tmp.setRight(t);
