@@ -12,42 +12,55 @@ public class  AVLTree extends BinaryTree {
     @Override
     public boolean insert(Comparable elem){
         if(this.root == null){
-            this.root = new AVLTreeNode(elem);
+            AVLTreeNode newNode = new AVLTreeNode(elem);
+            newNode.parent = null;
+            this.root = newNode;
             return true;
         }
 
-        return this.insertR((AVLTreeNode) this.root, new AVLTreeNode(elem));
+        return this.insertR((AVLTreeNode) this.root, new AVLTreeNode(elem), 0);
     }
 
-    public boolean insertR(AVLTreeNode parentNode, AVLTreeNode newNode){
-        println("insert:" + newNode.getElement());
+    public boolean insertR(AVLTreeNode parentNode, AVLTreeNode newNode, int recursiondepth){
         int comparisonResult = newNode.getElement().compareTo(parentNode.getElement());
         println(comparisonResult);
 
         if(newNode.getElement().compareTo(parentNode.getElement()) == 1) {
             if(parentNode.getRight() == null){
+                println(newNode.getElement() + " inserted right");
+                newNode.parent = parentNode;    //ref to parent for recursive balance check
                 parentNode.setRight(newNode);
             }else{
-                this.insertR((AVLTreeNode) parentNode.getRight(), newNode);
+                this.insertR((AVLTreeNode) parentNode.getRight(), newNode, recursiondepth++);
             }
         }
 
         if(newNode.getElement().compareTo(parentNode.getElement()) == -1){
-            println("insert left");
             if(parentNode.getLeft() == null){
+                println(newNode.getElement() + " inserted left");
+                newNode.parent = parentNode;    //ref to parent for recursive balance check
                 parentNode.setLeft(newNode);
             }else{
-                this.insertR((AVLTreeNode) parentNode.getLeft(), newNode);
+                this.insertR((AVLTreeNode) parentNode.getLeft(), newNode, recursiondepth++);
             }
         }else{
             return false;   //element already inserted
         }
 
-        checkBalance((AVLTreeNode)this.root);
+        if(recursiondepth == 0)
+            checkBalanceDebug(newNode);
         return true;
     }
 
+    private void checkBalanceDebug(AVLTreeNode currentNode){
+        println("current noder: " + currentNode.getElement());
+        if(currentNode.parent != null)
+            checkBalanceDebug(currentNode.parent);
+
+    }
     private void checkBalance (AVLTreeNode node){
+        //int this method the balance of the previously inserted node will be checked.
+        //Afterwards the method checks the tree recursively for further imbalanced nodes
         int balanceDifferece = node.calculateBalance();
         println("Node: " +node.getElement() + " is balances ?" + node.isBalanced);
         if(balanceDifferece > 1 || balanceDifferece < -1 && !node.isBalanced){
