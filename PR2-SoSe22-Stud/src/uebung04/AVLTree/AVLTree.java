@@ -11,18 +11,23 @@ public class  AVLTree extends BinaryTree {
 
     @Override
     public boolean insert(Comparable elem){
-        this.root = insertR((AVLTreeNode) this.root, new AVLTreeNode(elem));
+        try {
+            this.root = insertR((AVLTreeNode) this.root, new AVLTreeNode(elem));
+        }catch(Exception e){
+            return false;
+        }
         return true;
     }
 
-    private AVLTreeNode insertR(AVLTreeNode node, AVLTreeNode dataToInsert){
+    private AVLTreeNode insertR(AVLTreeNode node, AVLTreeNode dataToInsert) throws Exception {
         if(node == null)
             return dataToInsert;
-        if(dataToInsert.getElement().compareTo(node.getElement()) < 0)
+        else if(dataToInsert.getElement().compareTo(node.getElement()) < 0)
             node.setLeft(insertR((AVLTreeNode) node.getLeft(), dataToInsert));
         else if(dataToInsert.getElement().compareTo(node.getElement()) > 0)
             node.setRight(insertR((AVLTreeNode) node.getRight(), dataToInsert));
-
+        else if(dataToInsert.getElement().compareTo(node.getElement()) == 0)
+            throw new Exception("Element already inserted");
         return checkForRotation(node);
     }
 
