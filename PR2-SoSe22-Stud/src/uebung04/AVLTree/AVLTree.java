@@ -38,9 +38,8 @@ public class  AVLTree extends BinaryTree {
         //left-heavy
         if(balance > 1){
             //do rightrotation
-            if(((AVLTreeNode)currentNode.getLeft()).calculateBalance() < 0)
+            if(((AVLTreeNode)currentNode.getLeft()).calculateBalance() < 0) // doppelte rotation
                 currentNode.setLeft(rotateLeft((AVLTreeNode) currentNode.getLeft()));
-
 
             return rotateRight(currentNode);
         }

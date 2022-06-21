@@ -19,20 +19,6 @@ public class AVLTreeNode extends TreeNode {
         this.balance = 0;
     }
 
-    private AVLTreeNode rotateLeft(AVLTreeNode t){
-        AVLTreeNode tmp = (AVLTreeNode) t.getRight();
-        t.setRight(t.getRight().getLeft());
-        tmp.setLeft(t);
-        return tmp;
-    }
-
-    public AVLTreeNode rotateRight(AVLTreeNode t){
-        AVLTreeNode tmp = (AVLTreeNode) t.getLeft();
-        t.setLeft(t.getLeft().getRight());
-        tmp.setRight(t);
-        return tmp;
-    }
-
     public int calculateBalance(){
         int balanceRightSubTree = height(this.getRight());
         int balanceLeftSubTree = height(this.getLeft());
